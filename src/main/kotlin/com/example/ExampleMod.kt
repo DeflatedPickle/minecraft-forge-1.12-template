@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 $developer under the MIT license */
+/* Copyright (c) 2021 Example under the CC0 license */
 
 @file:Suppress("SpellCheckingInspection", "unused")
 

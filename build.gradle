@@ -171,7 +171,7 @@ spotless {
 		removeUnusedImports()
 		googleJavaFormat()
 
-		licenseHeader "/* $license_header */\n\n"
+		licenseHeader "/* ${fix_license(license_header)} */\n\n"
 	}
 
 	groovyGradle {
@@ -182,7 +182,7 @@ spotless {
 	kotlin {
 		ktlint(ktlint_version)
 
-		licenseHeader "/* $license_header */\n\n"
+		licenseHeader "/* ${fix_license(license_header)} */\n\n"
 	}
 
 	format 'misc', {
@@ -220,4 +220,11 @@ String minecraft_version() {
 
 String minecraft_version_short() {
 	return "$minecraft_major.$minecraft_minor"
+}
+
+String fix_license(String old) {
+	old = old.replace('\$DEVELOPER', developer)
+	old = old.replace('\$LICENSE', license.toUpperCase())
+
+	return old
 }
